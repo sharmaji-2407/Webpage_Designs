@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #131313;
+}
+.container
+{
+    margin-right: 6em;
+    position: relative;
+}
+.container#blur.active
+{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+.container .content
+{
+    position: relative;
+    max-width: 800px;
+}
+h2
+{
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+a
+{
+    position: relative;
+    padding: 5px 20px;
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background: #e2e2e211;
+    border-radius: 15px;
+}
+#pop
+{
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    padding: 50px;
+    /*box-shadow: 0 5px 30px rgba(0,0,0,.30);*/
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+}
+#pop.active
+{
+    top: 40%;
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s; 
+}
+
+.popup
+{
+    margin-right: 6em;
+    position: relative;
+    display: inline-block;
+}
+.popup .card
+{
+    position: relative;
+    width: 320px;
+    height: 450px;
+    background: #53535331;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.popup .card:before
+{
+    content: '';
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #080808;
+    clip-path: circle(200px at 50% -20%);
+    transition: 0.5s ease-in-out;
+}
+.popup .card:hover:before
+{
+    clip-path: circle(260px at 50% -3%);
+}
+.popup .card:after
+{
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -10%;
+    font-size: 7em;
+    font-weight: 800;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.116);
+
+}
+.popup .card .imgBx
+{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100000;
+    width: 100%;
+    height: 220px;
+    transition: 0.5s;
+}
+.popup .card:hover .imgBx
+{
+    top: 0%;
+    transform: translateY(8%);
+}
+.popup .card .imgBx img
+{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 270px;
+}
+.popup .card .contentBx
+{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 100px;
+    text-align: center;
+    transition: 0.7s;
+    z-index: 10;
+    
+}
+.popup .card:hover .contentBx
+{
+    height: 210px;
+
+}
+.popup .card .contentBx h2
+{
+ position: relative;
+ font-weight: 600;
+ letter-spacing: 1px;
+ color: #fff;  
+}
+.popup .card .contentBx .size,
+.popup .card .contentBx .color
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 20px;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+}
+.popup .card:hover .contentBx .size,
+.popup .card:hover .contentBx .color
+{
+    opacity: 1;
+    visibility: visible;
+    transition: 0.5s;
+}
+.popup .card .contentBx .size h3,
+.popup .card .contentBx .color h3
+{
+    color:#fff;
+    font-weight: 300;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: 10px;
+}
+.popup .card .contentBx .size span
+{
+    width: 50px;
+    height:26px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    
+    /*display: inline-block;
+    color: #111;
+    background: rgb(211, 211, 211);
+    margin:0 5px;*/
+    transition: 0.5s;
+    color: rgb(255, 255, 255);
+    border-radius:4px;
+}
+.popup .card .contentBx .size span:nth-child(2) 
+{
+    text-decoration: line-through; 
+}
+.popup .card .contentBx .size span:hover
+{
+    background: #00000038;
+}
+.popup .card .contentBx .color span
+{
+    width: 20px;
+    height: 20px;
+    background: rgb(15, 15, 15);
+    border-radius: 30%;
+    margin: 0 5px;
+    cursor: pointer;
+    
+}
+.popup .card .contentBx .color span:nth-child(2) 
+{
+    background: rgb(235, 235, 235);
+}
+.popup .card .contentBx a
+{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #fff;
+    border-radius: 4px;
+    margin-top: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #111;
+    opacity: 0;
+    transform : translateY(50px);
+    transition: 0.5s;
+}
+.popup .card:hover .contentBx a
+{
+    opacity: 1;
+    transform : translateY(0px);
+    transition-delay: 0.75s;
+}
